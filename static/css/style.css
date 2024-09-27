@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    position: relative;
+    height: 100vh;
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #df29f0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #df29f04f;
+    color: #000;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 1.5rem;
+    margin-right: 2rem;
+  }
+  
+  li {
+    padding: 10px;
+    margin-right: 2rem;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    color: #999;
+  }
+  .done {
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+    bottom: 63px;
+    padding: 6px 8px 1px 8px;
+    font-size: 17px;
+  
+    background-color: #df29f0;
+    color: #fff;
+  }
+  .userBtns {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    margin-bottom: 10%;
+  }
+  .log_in {
+    background: none;
+    /* border: 1px solid #df29f0; */
+    box-shadow: inset 0px 0px 0px 1px #df29f0;
+  
+    color: #000;
+  }
+  .window {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 39%;
+    height: 22rem;
+    position: relative;
+  }
+  .closeBtn {
+    position: absolute;
+    right: 10px;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+  }
+  .hide {
+    display: none;
+  }
+  form {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5%;
+    gap: 10px;
+    height: 80%;
+  }
+  label {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 3%;
+    width: 50%;
+  }
+  #username,
+  #lastName,
+  #password {
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #df29f0;
+  }
+  .submit {
+    margin-top: 10%;
+  }
+  @media (max-width: 500px) {
+    h1 {
+      margin-top: 13%;
+    }
+    input[type="text"] {
+      width: 60%;
+    }
+    .window {
+      width: 88%;
+    }
+  }
