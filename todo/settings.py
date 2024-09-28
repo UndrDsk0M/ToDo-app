@@ -118,11 +118,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-# This is where Django will look for your static files
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_URL = '/static/'  # URL to access static files
+
+# Directory to collect all static files (used in production)
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Collected static files will be stored here after running `collectstatic`
+
+# Additional locations of static files (used in development)
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',  # Django will look here for static files during development
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

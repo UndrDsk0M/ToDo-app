@@ -8,9 +8,10 @@ const submit = document.querySelectorAll(".submit");
 const logInWindow = document.querySelector(".log_in-window");
 const signUpWindow = document.querySelector(".sign_up-window");
 const closeBtn = document.querySelectorAll(".closeBtn");
-const nameInput = document.getElementById("username");
-// const lastNameInput = document.getElementById("lastName");
+const nameInput = document.getElementById("Name");
+const lastNameInput = document.getElementById("lastName");
 const passwordInput = document.getElementById("password");
+let listEl = [];
 function addTask() {
   const list = document.createElement("li");
   list.textContent = taskInput.value;
@@ -18,7 +19,7 @@ function addTask() {
   list.addEventListener("click", function () {
     list.classList.toggle("completed");
   });
-
+  listEl.push(list.textContent);
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "√";
   deleteButton.classList.add("done");
@@ -30,39 +31,41 @@ function addTask() {
   taskInput.value ? taskList.appendChild(list) : alert("Fill the input please");
 
   taskInput.value = "";
-}
-async function json() {
-  // Getting Data
-  const nameEl = nameInput.value;
-  // const lastName = lastNameInput.value;
-  const password = passwordInput.value;
-  // Sending data
-  const data = {
-    name: nameEl,
-    password: password,
-  };
-  const url = "";
-  const main = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  return { name: nameEl, passeord: password };
-}
-function formEn(event) {
-  event.preventDefault();
+  setLocalStorage();
+  getLocalStorage();
   json();
-  // Clear inputs
-  nameInput.value = "";
-  // lastNameInput.value = "";
-  passwordInput.value = "";
 }
-// submit.forEach((ele) => {
-//   ele.addEventListener("click", formEn);
-// });
-// Event Lesteners
+function setLocalStorage() {
+  localStorage.setItem("list", JSON.stringify(listEl));
+}
+function getLocalStorage() {
+  const data = JSON.parse(localStorage.getItem("list")) || [];
+  if (!data) return;
+}
+
+async function json() {
+    console.log(1);
+    const data = { tasks: listEl };
+    try {
+    const response = await fetch("https://undrdsk0m.pythonanywhere.com/submit", {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+        throw new Error("Network response was not ok");
+    }
+
+    const result = await response.json();
+    console.log("Data sent successfully:", result);
+    } catch (error) {
+    console.error("Error sending data:", error);
+    }
+}
+
 logInBtn.addEventListener("click", () => {
   logInWindow.classList.remove("hide");
   container.style.display = "none";
@@ -83,3 +86,5 @@ document.addEventListener("keypress", function (event) {
     addTask();
   }
 });
+
+console.log("updated");
