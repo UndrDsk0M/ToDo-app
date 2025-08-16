@@ -13,6 +13,7 @@ const isAuthenticated = document.getElementById("authenticated").value;
 const logInBtn = document.querySelector(".log_in");
 const signUpBtn = document.querySelector(".sign_up");
 const captcha = document.querySelector(".captcha")
+const btn = document.getElementById("theme");
 
 
 function getCookie(name) {
@@ -169,8 +170,9 @@ async function setCaptcha() {
   }
 };
 
-console.log(logInBtn, signUpBtn);
-
+btn.addEventListener("click", () => {
+  console.log("Button with image clicked!");
+});
 logInBtn.onclick = function(){
   logInWindow.classList.remove("hide");
   container.style.display = "none";

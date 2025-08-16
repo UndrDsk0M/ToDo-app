@@ -4,11 +4,37 @@ body {
     position: relative;
     height: 100vh;
   }
+
+nav {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #df29f0;
+}
+
+.logo{
+  color: #df29f0;
+  margin: 0;
+}
+
+#theme{
+  width: fit-content;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background: whitesmoke;
+  font-weight: bold;
+}
   .flex {
+    margin-top: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .container {
     width: 600px;
     margin: 50px auto;

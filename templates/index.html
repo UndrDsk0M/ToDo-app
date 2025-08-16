@@ -10,73 +10,84 @@
      <script defer src='{% static "js/script.js" %}'></script>
   </head>
 
-  <body class="flex">
-    <div class="container">
-      {% if user.is_authenticated %}
-      <input type="hidden" id="authenticated" value="true">
-      {% else %}
-      <input type="hidden" id="authenticated" value="false">
-      <div class="userBtns">
-        <button class="log_in">Log In</button>
-        <button class="sign_up">Sign Up</button>
+  <body>
+    <nav>
+      <h1 class="logo"><a  target="_blank" style="font-weight: bold;text-decoration: none;color: inherit;" href="https://github.com/UndrDsk0M/ToDo-app">ToDo-app</a></h1>
+      <p style="margin: 0; color: black;">|</p>
+      <a target="_blank" href="https://gravatar.com/fantasticcherryblossomef40d159a8">Me</a>
+      <a target="_blank" href="https://tamana543.github.io/portfolio/">She</a>
+      <button id="theme">
+        <img src="{% static "img/settingicon.png" %}" alt="icon">
+      </button>
+    </nav>
+    <div class="flex">
+      <div class="container">
+        {% if user.is_authenticated %}
+        <input type="hidden" id="authenticated" value="true">
+        {% else %}
+        <input type="hidden" id="authenticated" value="false">
+        <div class="userBtns">
+          <button class="log_in">Log In</button>
+          <button class="sign_up">Sign Up</button>
+        </div>
+        {% endif %}
+        <h1>Your List</h1>
+        <input type="text" id="taskInput" placeholder="Add a new task" onkeydown="if (event.key == 'Enter'){upload()}" required/>
+        <button onclick="upload()">Add Task </button>
+        <ul id="taskList">
+          {% for task in todoThings %}
+            <li id="{{ forloop.counter }}" name="{{ task.id }}">{{ task.name }}
+              <button onclick="checked(this)" class="done" value="{{ forloop.counter }}">√</button>
+              <button onclick="subtask(this)" class="subtask" value="{{ forloop.counter }}">+</button>
+            </li>
+          {% endfor %} 
+        </ul>
       </div>
-      {% endif %}
-      <h1>Your List</h1>
-      <input type="text" id="taskInput" placeholder="Add a new task" onkeydown="if (event.key == 'Enter'){upload()}" required/>
-      <button onclick="upload()">Add Task </button>
-      <ul id="taskList">
-        {% for task in todoThings %}
-          <li id="{{ forloop.counter }}" name="{{ task.id }}">{{ task.name }}
-            <button onclick="checked(this)" class="done" value="{{ forloop.counter }}">√</button>
-            <button onclick="subtask(this)" class="subtask" value="{{ forloop.counter }}">+</button>
-          </li>
-        {% endfor %} 
-      </ul>
-    </div>
 
-    {% if user.is_authenticated %}
-    <p></p>
-    {% else %}
-    <div class="window log_window hide">
-      <div class="closeBtn">X</div>
-      <form method="POST" action="{% url 'signin' %}" class="flex">
-        {% csrf_token %}
-        <h3 class="head">Log In</h3>
-        <div class="name flex">
-          <label for="username">Username</label>
-          <input type="text" name="username" id="username" required />
-        </div>
-        <div class="last_name flex">
-          <label for="password" class="last_name-label">Password</label>
-          <input type="password" name="password" id="password" required />
-        </div>
-        <button type="submit" class="submit">Submit</button>
-      </form>
-    </div>
-
-    <div class="window sign_window hide">
-      <div class="closeBtn">X</div>
-      <form method="POST" action="{% url 'signup' %}" class="flex">
-        {% csrf_token %}
-        <h3 class="head">Sign Up</h3>
-        <div class="name flex">
+      {% if user.is_authenticated %}
+      <p></p>
+      {% else %}
+      <div class="window log_window hide">
+        <div class="closeBtn">X</div>
+        <form method="POST" action="{% url 'signin' %}" class="flex">
+          {% csrf_token %}
+          <h3 class="head">Log In</h3>
+          <div class="name flex">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" required />
-        </div>
-        <div class="last_name flex">
+          </div>
+          <div class="last_name flex">
             <label for="password" class="last_name-label">Password</label>
             <input type="password" name="password" id="password" required />
-        </div>
-        <div>
-          <div class="captcha"></div>
-          <input class="captchainput" type="text" name="captcha">
-        </div>
-        <button type="submit" class="submit">Submit</button>
-    </form>
-    
+          </div>
+          <button type="submit" class="submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="window sign_window hide">
+        <div class="closeBtn">X</div>
+        <form method="POST" action="{% url 'signup' %}" class="flex">
+          {% csrf_token %}
+          <h3 class="head">Sign Up</h3>
+          <div class="name flex">
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" required />
+          </div>
+          <div class="last_name flex">
+              <label for="password" class="last_name-label">Password</label>
+              <input type="password" name="password" id="password" required />
+          </div>
+          <div>
+            <div class="captcha"></div>
+            <input class="captchainput" type="text" name="captcha">
+          </div>
+          <button type="submit" class="submit">Submit</button>
+      </form>
+      
+      </div>
+      {% endif %}
+      <ul>
+      </ul>
     </div>
-    {% endif %}
-    <ul>
-    </ul>
-   </body>
+  </body>
 </html>

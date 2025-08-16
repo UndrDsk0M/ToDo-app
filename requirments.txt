@@ -1,4 +1,5 @@
-djangorestframework
-apscheduler
+djangorestframework==3.16.0
+APScheduler==3.11.0
 captchaSaz>=2.0.4
 redis>=4.0.2
+django-redis==6.0.0
