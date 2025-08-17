@@ -1,9 +1,15 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     position: relative;
     height: 100vh;
   }
+body.light {
+  background-color: #f4f4f4;
+}
+
+body.dark {
+  background-color: #373737;
+}
 
 nav {
   width: 100vw;
@@ -11,12 +17,11 @@ nav {
   align-items: center;
   gap: 8px;
   margin: 0;
-  color: #df29f0;
 }
 
 .logo{
-  color: #df29f0;
   margin: 0;
+  padding: 1vh;
 }
 
 #theme{
@@ -25,180 +30,222 @@ nav {
   top: 0;
   right: 0;
   padding: 10px;
-  background: whitesmoke;
   font-weight: bold;
 }
-  .flex {
-    margin-top: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+#theme.light{
+  background: whitesmoke;
+}
+#theme.dark {
+  background: #373737;
+}
 
+.flex {
+  margin-top: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  box-shadow: 100px 100px 20px fuchsia;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="text"].captchainput{
+  width: 92%;
+  height: 8vh;
+}
+
+.captchainput {
+  text-align: center;
+  width: 18vw;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+  padding: 0 10px;
+  letter-spacing: 8px;
+  transition: border-bottom-color 0.3s;
+}
+
+.log_in {
+  background: none;
+  /* border: 1px solid #df29f0; */
+  color: #000;
+}
+
+button {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #df29f04f;
+  color: #000;
+}
+
+.subtask {
+  margin-left: 70%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 1.5rem;
+  margin-right: 2rem;
+}
+
+li {
+  padding: 10px;
+  margin-right: 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+.done {
+  border-radius: 40%;
+  position: absolute;
+  left: 0.5vw;
+  padding: 6px 8px 1px 8px;
+  font-size: 17px;
+  color: #fff;
+}
+
+.userBtns {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  margin-bottom: 10%;
+}
+
+.window {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 43rem;
+  position: relative;
+}
+.closeBtn {
+  position: absolute;
+  right: 10px;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+form {
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5%;
+  gap: 10px;
+  height: 80%;
+}
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-right: 3%;
+  width: 50%;
+}
+#username,
+#lastName,
+#password {
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #df29f0;
+}
+.submit {
+  margin-top: 10%;
+}
+.captcha_img{
+  width: 18vw;
+  height: 12vh;
+  border-style: groove;
+  margin-top: 15%;
+}
+
+.container.light {
+  background-color: #fff;
+  box-shadow: 100px 100px 20px fuchsia;
+}
+.container.dark {
+  background-color: honeydew;
+  box-shadow: 100px 100px 20px #35e173;
+}
+
+.log_in.light{
+  background: none;
+  box-shadow: inset 0px 0px 0px 1px #df29f0
+}
+.log_in.dark{
+  background: none;
+  box-shadow: inset 0px 0px 0px 1px #35e173
+}
+
+.done.light,
+body.light button {
+  background-color: #df29f0;
+}
+.body.dark done,
+body.dark button {
+  background-color: #35e173;
+}
+
+body.light h1,
+body.light a,
+nav.light{
+  color: #df29f0;
+}
+
+body.dark h1,
+body.dark a,
+nav.dark{
+  color: #35e173;
+}
+
+
+
+@media (max-width: 500px) {
   .container {
-    width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    box-shadow: 100px 100px 20px fuchsia;
+    width: 80vw;
   }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-
-  
-  input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  input[type="text"].captchainput{
+  .captcha-input{
     width: 92%;
-    height: 8vh;
   }
-
-  .captchainput {
-    text-align: center;
-    width: 18vw;
-    font-size: 1.2rem;
-    border: none;
-    border-bottom: 2px solid #ddd;
-    outline: none;
-    padding: 0 10px;
-    letter-spacing: 8px;
-    transition: border-bottom-color 0.3s;
+  .captcha_img {
+    width: 54vw;
+    height: 16vh;
   }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #df29f0;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  h1 {
+    margin-top: 13%;
   }
-  
-  button:hover {
-    background-color: #df29f04f;
-    color: #000;
-  }
-  
-  .subtask {
-    margin-left: 70%;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 1.5rem;
-    margin-right: 2rem;
-  }
-  
-  li {
-    padding: 10px;
-    margin-right: 2rem;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .completed {
-    text-decoration: line-through;
-    color: #999;
-  }
-  .done {
-    border-radius: 40%;
-    position: absolute;
-    left: 0.5vw;
-    padding: 6px 8px 1px 8px;
-    font-size: 17px;
-  
-    background-color: #df29f0;
-    color: #fff;
-  }
-  .userBtns {
-    position: absolute;
-    top: 10px;
-    right: 5px;
-    margin-bottom: 10%;
-  }
-  .log_in {
-    background: none;
-    /* border: 1px solid #df29f0; */
-    box-shadow: inset 0px 0px 0px 1px #df29f0;
-  
-    color: #000;
+  input[type="text"] {
+    width: 60%;
   }
   .window {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    height: 43rem;
-    position: relative;
+    width: 98vw;
   }
-  .closeBtn {
-    position: absolute;
-    right: 10px;
-    font-size: 1rem;
-    font-weight: 900;
-    cursor: pointer;
-  }
-  .hide {
-    display: none;
-  }
-  form {
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 5%;
-    gap: 10px;
-    height: 80%;
-  }
-  label {
-    font-weight: 600;
-    font-size: 1rem;
-    margin-right: 3%;
-    width: 50%;
-  }
-  #username,
-  #lastName,
-  #password {
-    outline: none;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #df29f0;
-  }
-  .submit {
-    margin-top: 10%;
-  }
-  .captcha_img{
-    width: 18vw;
-    height: 12vh;
-    border-style: groove;
-    margin-top: 15%;
-  }
-
-  @media (max-width: 500px) {
-    .container {
-      width: 80vw;
-    }
-    .captcha-input{
-      width: 92%;
-    }
-    .captcha_img {
-      width: 54vw;
-      height: 16vh;
-    }
-    h1 {
-      margin-top: 13%;
-    }
-    input[type="text"] {
-      width: 60%;
-    }
-    .window {
-      width: 98vw;
-    }
-  }
+}

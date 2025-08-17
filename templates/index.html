@@ -10,24 +10,24 @@
      <script defer src='{% static "js/script.js" %}'></script>
   </head>
 
-  <body>
-    <nav>
+  <body class="light">
+    <nav class="ligh">
       <h1 class="logo"><a  target="_blank" style="font-weight: bold;text-decoration: none;color: inherit;" href="https://github.com/UndrDsk0M/ToDo-app">ToDo-app</a></h1>
       <p style="margin: 0; color: black;">|</p>
       <a target="_blank" href="https://gravatar.com/fantasticcherryblossomef40d159a8">Me</a>
       <a target="_blank" href="https://tamana543.github.io/portfolio/">She</a>
-      <button id="theme">
+      <button id="theme" class="light">
         <img src="{% static "img/settingicon.png" %}" alt="icon">
       </button>
     </nav>
     <div class="flex">
-      <div class="container">
+      <div class="container light">
         {% if user.is_authenticated %}
         <input type="hidden" id="authenticated" value="true">
         {% else %}
         <input type="hidden" id="authenticated" value="false">
         <div class="userBtns">
-          <button class="log_in">Log In</button>
+          <button class="log_in light">Log In</button>
           <button class="sign_up">Sign Up</button>
         </div>
         {% endif %}

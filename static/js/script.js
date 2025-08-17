@@ -14,6 +14,7 @@ const logInBtn = document.querySelector(".log_in");
 const signUpBtn = document.querySelector(".sign_up");
 const captcha = document.querySelector(".captcha")
 const btn = document.getElementById("theme");
+const nav = document.getElementsByTagName("nav");
 
 
 function getCookie(name) {
@@ -171,7 +172,22 @@ async function setCaptcha() {
 };
 
 btn.addEventListener("click", () => {
-  console.log("Button with image clicked!");
+  const body = document.body;
+
+  // toggle between 'light' and 'dark' classes
+  if (body.classList.contains("light")) {
+    body.classList.replace("light", "dark");
+    logInBtn.classList.replace("light", "dark")
+    container.classList.replace("light", "dark")
+    btn.classList.replace("light", "dark")
+  
+  } else {
+    body.classList.replace("dark", "light");
+    logInBtn.classList.replace("dark", "light")
+    container.classList.replace("dark", "light")
+    btn.classList.replace("dark", "light")
+
+  }
 });
 logInBtn.onclick = function(){
   logInWindow.classList.remove("hide");
