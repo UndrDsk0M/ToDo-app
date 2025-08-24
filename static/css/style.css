@@ -12,6 +12,9 @@ body.dark {
 }
 
 nav {
+  position: fixed;
+  left: 0px;
+  top: 0px;
   width: 100vw;
   display: flex;
   align-items: center;

@@ -177,15 +177,14 @@ btn.addEventListener("click", () => {
   // toggle between 'light' and 'dark' classes
   if (body.classList.contains("light")) {
     body.classList.replace("light", "dark");
-    logInBtn.classList.replace("light", "dark")
     container.classList.replace("light", "dark")
     btn.classList.replace("light", "dark")
   
   } else {
     body.classList.replace("dark", "light");
-    logInBtn.classList.replace("dark", "light")
     container.classList.replace("dark", "light")
     btn.classList.replace("dark", "light")
+    
 
   }
 });

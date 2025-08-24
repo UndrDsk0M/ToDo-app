@@ -19,14 +19,13 @@ scheduler.start()
 def delete_captcha_path(path):
     os.remove(path)
 
-
 def mainpage_r(request):
-    captcha_img, captcha_txt = generate()
     todoThings = None
     if request.user.is_authenticated:
         user = request.user
         todoThings = Todo.objects.filter(user=user)[::-1]
-    return render(request, 'index.html', {"todoThings": todoThings})
+        print(list(todoThings))
+    return render(request, 'index.html', {"todoThings": list(todoThings)})
 
 def signup(request):
     if request.method == 'POST':

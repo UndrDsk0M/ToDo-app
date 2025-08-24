@@ -20,4 +20,4 @@ class Todo(models.Model):
         super(Todo, self).save(*args, **kwargs)
     
     def __str__(self):
-        return self.name
+        return f"[{self.name}, {self.parent}]"
