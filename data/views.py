@@ -23,9 +23,9 @@ def mainpage_r(request):
     todoThings = None
     if request.user.is_authenticated:
         user = request.user
-        todoThings = Todo.objects.filter(user=user)[::-1]
+        todoThings = Todo.objects.filter(user=user).order_by("-id")
         print(list(todoThings))
-    return render(request, 'index.html', {"todoThings": list(todoThings)})
+    return render(request, 'index.html', {"todoThings": (todoThings)})
 
 def signup(request):
     if request.method == 'POST':
@@ -78,9 +78,11 @@ class submit(APIView):
 class checked(APIView):
     def post(self, request):
         if request.user.is_authenticated:
-            body = request.data.get("task")
-            print(body, request.user)
-            taskObject = Todo.objects.get(id=body, user=request.user)
+            id = int(request.data.get("task")) - 1
+            print(id)
+
+            print(Todo.objects.filter(user=request.user).order_by("-id"))
+            taskObject = Todo.objects.filter(user=request.user).order_by("-id")[id]
             print(taskObject)
             taskObject.delete()
 
@@ -106,4 +108,13 @@ class captcha(APIView):
     
 class Subtask(APIView):
     def post(self, request):
-        print("of")
+        if request.user.is_authenticated:
+            data = request.data
+            parent_task = int(data.get("parent_task")) - 1
+            task_content = data.get("task")
+
+            parent_n = Todo.objects.filter(user=request.user).order_by("-id")[parent_task]
+            parent = Todo.objects.get(name=parent_n, user=request.user)
+           
+            Todo.objects.create(name=task_content, parent=parent, user=request.user)
+            return Response({"status": 202})

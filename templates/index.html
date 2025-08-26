@@ -36,12 +36,23 @@
         <button onclick="upload()">Add Task </button>
         <ul id="taskList">
           {% for task in todoThings %}
+            {% if not task.parent %}
             <li id="{{ forloop.counter }}" name="{{ task.id }}">{{ task.name }}
               <button onclick="checked(this)" class="done" value="{{ forloop.counter }}">√</button>
               <button onclick="subtask(this)" class="subtask" value="{{ forloop.counter }}">+</button>
+              <ul id="taskList">
+              {% if task.subtasks.exists %}
+                {% for subt in task.subtasks.all %}
+                  <li id="{{ forloop.counter }}" name="{{ subt.id }}">{{ subt.name }}
+                    <button onclick="checked(this)" class="done" value="{{ forloop.counter }}" style="left: 3vw;">√</button>
+                  </li>
+                {% endfor %} 
+                {% endif %}
+              </ul>
             </li>
+            {% endif %}
           {% endfor %} 
-        </ul>
+          </ul>
       </div>
 
       {% if user.is_authenticated %}

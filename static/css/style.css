@@ -109,6 +109,9 @@ button:hover {
 
 .subtask {
   margin-left: 70%;
+  z-index: +1;
+  position: absolute;
+  right: 5%;
 }
 
 ul {
@@ -233,6 +236,7 @@ nav.dark{
 
 @media (max-width: 500px) {
   .container {
+    left: 10vw;
     width: 80vw;
   }
   .captcha-input{

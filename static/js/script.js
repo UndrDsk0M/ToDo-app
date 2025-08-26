@@ -50,7 +50,10 @@ if (isAuthenticated == "false"){
   list.innerHTML = `<li>Sign Up/In :)</li>`;
   cachedTask.forEach(task => {
     let index = cachedTask.indexOf(task);
-    list.innerHTML += `<li id="${index}">${task}<button onclick="checked(this)" class="done" value="${index}">√</button></li>` ;
+    list.innerHTML += `<li id="${index}">
+                      ${task}
+                      <button onclick="checked(this)" class="done" value="${index}">√</button>
+                      </li>` ;
   });
 };
 
@@ -78,7 +81,11 @@ async function upload() {
       index = caching(task);
     }
     const tasks = document.getElementById("taskList");
-    tasks.innerHTML = `<li id="${index}">${task}<button onclick="checked(this)" class="done" value="${index}">√</button></li>` + tasks.innerHTML;
+    tasks.innerHTML = `<li id="${index}">
+                      ${task}
+                      <button onclick="checked(this)" class="done" value="${index}">√</button>
+                      <button onclick="subtask(this)" class="subtask" value="${index}">+</button>              
+                      <ul></ul></li>` + tasks.innerHTML;
 };
 
 async function checked(element) {
@@ -109,6 +116,7 @@ async function checked(element) {
 
 async function subtask(element) {
   const that_task = document.getElementById(element.value)
+  const task = taskInput.value
   if (isAuthenticated == "true"){
     try {
       let response = await fetch(`/subtask/`, {
@@ -117,7 +125,7 @@ async function subtask(element) {
           "Content-Type": "application/json",
           'X-CSRFToken': csrftoken
           },
-          body: JSON.stringify({ task: that_task.id }),
+          body: JSON.stringify({ parent_task: that_task.id, task: task }),
       });
     } 
     catch (error) {
@@ -128,7 +136,9 @@ async function subtask(element) {
   else if (isAuthenticated == "false"){
     console.log("local subtask saving");
   }
-  // that_task.parentElement.appendChild(that_task);
+
+  that_task.getElementsByTagName('ul')[0].innerHTML += `<li>${task}<button onclick="checked(this)" class="done" value="" style="left: 3vw;">√</button></li>`;;
+  taskInput.value = "";
 };
 
 
