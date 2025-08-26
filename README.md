@@ -61,6 +61,7 @@ Open your browser and navigate to http://localhost:[port] (default: [e.g., 3000 
 ## Usage
 
 + <b>Create a Task</b>: Enter task details in the input field and click "Add" or press Enter.
++ <b>Add a SubTask</b>: You can enhance one or many tasks in a single main task! 
 + <b>Delete a Task</b>: Click the delete icon to remove a task.
 + <b>Create local account</b>: enter the sign in/up and enter the captcha, username and password
 + <b>Mark Complete</b>: Check the box next to a task to mark it as complete.
