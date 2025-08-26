@@ -1,15 +1,20 @@
 # ToDo-app
-
-<img width="1920" height="896" alt="example" src="https://github.com/user-attachments/assets/96517555-e2dc-4640-88ce-4b8abf4c4217" />
+<img width="1333" height="855" alt="title" src="https://github.com/user-attachments/assets/b94069cd-151d-421a-b022-792f987b208a" />
 
 A versatile ToDo site built with Django and JavaScript that lets you write and save tasks both online and offline, complete with user authentication support. this app allows users to create and delete, and track tasks with ease.
 Features
 
-Add Tasks: Quickly create new tasks with descriptions and due dates.
-Online & Offline Task Management: manage tasks whether you're connected or offline.
-Delete Tasks: Remove tasks that are no longer needed.
-User Authentication: Secure user accounts with login, registration, and session management.
-Responsive Design: Works seamlessly on desktop and mobile devices
+## features
++ Add Tasks: Quickly create new tasks with descriptions and due dates.
++ Online & Offline Task Management: manage tasks whether you're connected or offline.
++ Delete Tasks: Remove tasks that are no longer needed.
++ User Authentication: Secure user accounts with login, registration, and session management.
++ Responsive Design: Works seamlessly on desktop and mobile devices
++ Dark and Ligth Mode :
+<img width="256" height="128" alt="lightmode" src="https://github.com/user-attachments/assets/c87879b1-8a56-4f7c-a737-f4574881f70d" />
+<img width="256" height="128" alt="darkmode" src="https://github.com/user-attachments/assets/b94069cd-151d-421a-b022-792f987b208a" />
+
+
 .
 [Optional: Add any unique features, e.g., Task Categories, Filtering, or Local Storage]
 
@@ -21,6 +26,7 @@ Responsive Design: Works seamlessly on desktop and mobile devices
 | Frontend UI | JavaScript, HTML, CSS |
 | Offline Sync | Browser storage/Web APIs (e.g., localStorage or Service Workers) |
 ---
+0. [features](#features)
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Live View](#view)
